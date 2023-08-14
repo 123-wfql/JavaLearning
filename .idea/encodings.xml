@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/Day01/Hello.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/JavaDemo/Student.txt" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/JavaSE/src/Basic.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/day-01/src/BitOperator.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/day-01/src/BitOperator.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/day-01/src/BitOperator.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/day-01/src/DivideMod.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/day-01/src/DivideMod.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/day-01/src/DivideMod.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/day-01/src/Hello.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/day-01/src/Hello.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/day-01/src/Hello.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/day-01/src/LogicOperate.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/day-01/src/LogicOperate.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/day-01/src/LogicOperate.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/day-01/src/PlusDetail.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/day-01/src/PlusDetail.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/day-01/src/PlusDetail.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/day-01/src/StringToBasic.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/day-01/src/StringToBasic.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/day-01/src/StringToBasic.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/demo/src/exp2employee/Employee.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/demo/src/studentmanagesystem/ManagerLog.java" charset="GBK" />
   </component>
 </project>
