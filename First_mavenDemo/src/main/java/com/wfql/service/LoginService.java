@@ -1,6 +1,5 @@
 package com.wfql.service;
 
-import com.wfql.dao.LoginMapper;
 import com.wfql.dao.impl.LoginMapperImpl;
 import com.wfql.entity.Login;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,20 +17,9 @@ import java.util.logging.Logger;
  */
 @Service
 public class LoginService {
-    private LoginMapper loginMapper;
-
-
-    @Autowired
-    public void setLoginMapper(LoginMapperImpl loginMapperImpl) {
-        this.loginMapper = loginMapperImpl;
-    }
-
-    @Autowired
-    public void setLoginMapper(LoginMapper loginMapperByFactory) {
-        this.loginMapper = loginMapperByFactory;
-    }
-
     private static final Logger logger = Logger.getLogger(LoginService.class.getName());
+    @Autowired
+    private LoginMapperImpl loginMapper;
 
     public void getAllLogin() {
         logger.log(Level.INFO, "展示登录信息列表");

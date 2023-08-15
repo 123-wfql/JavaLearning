@@ -24,12 +24,17 @@ import java.util.Map;
 /**
  * Unit test for simple App.
  */
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration({"classpath:applicationContext.xml"})
 public class AppTest extends TestCase {
     /**
      * Create the test case
      *
      * @param testName name of the test case
      */
+//    @Autowired
+    UsersService usersService;
+
     public AppTest(String testName) {
         super(testName);
     }
@@ -79,24 +84,24 @@ public class AppTest extends TestCase {
         sqlSession.close();
     }
 
-    //    public void testGetUsersByNameAndPwd() {
-    //        SqlSession sqlSession  = MybatisUtil.getSqlSessionFromXml();
-    //        UsersMapper mapper = sqlSession.getMapper(UsersMapper.class); // 调用findAll方法查询数据库
-    //        try{
-    //            List<Users> users3 = mapper.getUsersByNameAndPwd("tom", "123456");
-    //            for(Users tom : users3){
-    //                System.out.println(tom);
-    //            }
-    //        } catch (Exception e){
-    //            e.printStackTrace();
-    //        }
-    //
-    //
-    //
-    //        sqlSession.close();
-    //
-    //
-    //    }
+        public void testGetUsersByNameAndPwd() {
+            SqlSession sqlSession  = MybatisUtil.getSqlSessionFromXml("mybatis_config.xml");
+            UsersMapper mapper = sqlSession.getMapper(UsersMapper.class); // 调用findAll方法查询数据库
+            try{
+                List<Users> users3 = mapper.getUsersByNameParam("tom");
+                for(Users tom : users3){
+                    System.out.println(tom);
+                }
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+
+
+
+            sqlSession.close();
+
+
+        }
 
     public void testGetUsersByUsers() {
         SqlSession sqlSession = MybatisUtil.getSqlSessionFromXml("mybatis_config.xml");
@@ -243,11 +248,15 @@ public class AppTest extends TestCase {
         }
     }
 
-    public void testIOC() {
+    public void testLoginDI() {
         ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
         LoginService service = app.getBean("loginService", LoginService.class);
         service.getAllLogin();
-        UsersService service1 = app.getBean("usersServiceBySetter", UsersService.class);
-        service1.getAllUsers();
+    }
+
+    public void testUserDI() {
+        ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
+        UsersService service = app.getBean("usersService", UsersService.class);
+        service.getAllUsers();
     }
 }

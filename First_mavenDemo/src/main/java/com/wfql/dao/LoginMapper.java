@@ -10,8 +10,7 @@ import java.util.Map;
 /**
  * @author wfql
  * &#064;date  2023/8/12/012
- * @apiNote
- * 这个Mapper写了实现类，用注解省略了xml中的配置
+ * @apiNote 这个Mapper写了实现类，用注解省略了xml中的配置
  */
 
 @Repository

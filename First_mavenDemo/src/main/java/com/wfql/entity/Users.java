@@ -13,8 +13,8 @@ import java.util.List;
 @Data
 @Component
 public class Users {
-  private Integer id;
-  private String name;
+    private Integer id;
+    private String name;
 
-  private List<Login> logins;
+    private List<Login> logins;
 }

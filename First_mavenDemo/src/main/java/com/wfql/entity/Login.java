@@ -11,9 +11,9 @@ import org.springframework.stereotype.Component;
 @Data
 @Component
 public class Login {
-  private int loginId;
-  private String loginPwd;
-  private int userId;
+    private int loginId;
+    private String loginPwd;
+    private int userId;
 
-  private Users user;
+    private Users user;
 }

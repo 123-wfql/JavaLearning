@@ -12,9 +12,4 @@
     <context:component-scan base-package="com.wfql"/>
     <!--使用工厂获取Mapper实例-->
     <bean id="usersMapperByFactory" class="com.wfql.factory.MapperFactory" factory-method="createUsersMapper"/>
-    <bean id="usersServiceBySetter" class="com.wfql.service.UsersService" >
-        <property name="usersMapperByFactory" ref="usersMapperByFactory" />
-    </bean>
-
-
 </beans>

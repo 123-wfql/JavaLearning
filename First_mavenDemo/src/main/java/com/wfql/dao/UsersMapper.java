@@ -1,20 +1,17 @@
 package com.wfql.dao;
 
 import com.wfql.entity.Users;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 /**
  * @author wfql
  * @date 2023/8/4/004
- * @apiNote
- * 这个类使用了工厂获取，在xml中需要定义bean，不需要对这个接口进行实现
+ * @apiNote 这个类使用了工厂获取，在xml中需要定义bean，不需要对这个接口进行实现
  */
-@Mapper
-@Repository
+//@Mapper
+//@Repository
 // 定义操作数据库的一些方法
 public interface UsersMapper {
 
