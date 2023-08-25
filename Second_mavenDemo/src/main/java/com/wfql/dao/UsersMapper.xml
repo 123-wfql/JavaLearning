@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wfql.dao.UsersMapper">
+
+    <resultMap id="usersMap" type="users">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+
+        <collection property="logins" ofType="login">
+            <id property="loginId" column="loginId"/>
+            <result property="loginPwd" column="loginPwd"/>
+            <result property="userId" column="userId"/>
+        </collection>
+
+    </resultMap>
+
+
+    <insert id="addUser" parameterType="Users">
+        insert into users(id, name)
+        values (#{id}, #{name})
+    </insert>
+    <update id="updateUser" parameterType="Users">
+        update users
+        set name=#{name}
+        where id = #{id}
+    </update>
+    <delete id="deleteUsers" parameterType="integer">
+        delete
+        from users
+        where id = #{id}
+    </delete>
+    <select id="getAllUsers" resultType="Users">
+        select *
+        from users
+    </select>
+
+    <select id="getUsersByName" resultType="Users" parameterType="string">
+        select *
+        from users
+        where name = #{name}
+
+    </select>
+
+    <select id="getUsersByUsers" resultType="Users" parameterType="Users">
+        select *
+        from users
+        where name = #{name}
+    </select>
+    <select id="getUsersBySearch" resultType="Users" parameterType="string">
+        select *
+        from users
+        where name like #{word}
+    </select>
+    <select id="getItemsCount" resultType="java.lang.Integer">
+        select count(*)
+        from users
+    </select>
+    <select id="getAllUsersAndLogins" resultMap="usersMap">
+        select u.*, l.*
+        from users u,
+             login l
+        where u.id = l.userid
+    </select>
+    <select id="getUsersByNameParam" resultType="com.wfql.entity.Users">
+        select *
+        from users
+        where name = #{name}
+    </select>
+
+
+</mapper>

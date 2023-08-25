@@ -13,8 +13,10 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import org.apache.ibatis.session.SqlSession;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,20 +26,24 @@ import java.util.Map;
 /**
  * Unit test for simple App.
  */
-//@RunWith(SpringJUnit4ClassRunner.class)
-//@ContextConfiguration({"classpath:applicationContext.xml"})
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration({"classpath:applicationContext.xml"})
 public class AppTest extends TestCase {
     /**
      * Create the test case
      *
      * @param testName name of the test case
      */
-//    @Autowired
+    @Autowired
     UsersService usersService;
+    @Autowired
+    LoginService loginService;
 
-    public AppTest(String testName) {
-        super(testName);
+    public AppTest() {
+
     }
+
+
 
     /**
      * @return the suite of tests being tested
@@ -248,15 +254,16 @@ public class AppTest extends TestCase {
         }
     }
 
+    @org.junit.Test
     public void testLoginDI() {
-        ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
-        LoginService service = app.getBean("loginService", LoginService.class);
-        service.getAllLogin();
+
+        loginService.getAllLogin();
     }
 
+    @org.junit.Test
     public void testUserDI() {
-        ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
-        UsersService service = app.getBean("usersService", UsersService.class);
-        service.getAllUsers();
+//        ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
+//        UsersService service = app.getBean("usersService", UsersService.class);
+        usersService.getAllUsers();
     }
 }

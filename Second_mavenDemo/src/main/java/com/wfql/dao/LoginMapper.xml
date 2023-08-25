@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wfql.dao.LoginMapper">
+
+    <resultMap id="loginMap" type="login">
+        <id property="loginId" column="loginId"/>
+        <result property="loginPwd" column="loginPwd"/>
+        <result property="userId" column="userId"/>
+
+        <association property="user" javaType="Users">
+            <id property="id" column="id"/>
+            <result property="name" column="name"/>
+        </association>
+    </resultMap>
+    <delete id="deleteByIds" parameterType="list">
+        delete from login where loginId in
+        <foreach collection="list" item="v" separator="," open="(" close=")">
+            #{v}
+        </foreach>
+    </delete>
+    <delete id="deleteByMap" parameterType="map">
+        delete from login where loginId in
+        <foreach collection="ids" item="v" separator="," open="(" close=")">
+            #{v}
+        </foreach>
+    </delete>
+    <select id="getAllLogin" resultMap="loginMap">
+        select l.*, u.*
+        from login l,
+             users u
+        where l.userId = u.id
+    </select>
+    <select id="getAllLoginByConditions" resultMap="loginMap" parameterType="login">
+        select * from login
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="loginPwd != null">
+                and loginPwd = #{loginPwd}
+            </if>
+            <if test="userId != -1">
+                and userId = #{userId}
+            </if>
+        </trim>
+    </select>
+</mapper>
