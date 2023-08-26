@@ -18,6 +18,8 @@
 
     <!--使用工厂获取Mapper实例-->
     <bean id="usersMapperByFactory" class="com.wfql.factory.MapperFactory" factory-method="createUsersMapper"/>
+    <bean id="loginMapperByFactory" class="com.wfql.factory.MapperFactory" factory-method="createLoginMapper"/>
+    <bean id="adminMapperByFactory" class="com.wfql.factory.MapperFactory" factory-method="createAdminMapper"/>
 
     <!-- 简化页面文件名配置 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -44,5 +46,10 @@
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="10485760"/> <!-- 10M -->
     </bean>
+
+    <!--&lt;!&ndash;扫描dao包，把下面所有操作数据库的接口都注册到容器&ndash;&gt;-->
+    <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+    <!--    <property name="basePackage" value="com.wfql.dao"/>-->
+    <!--</bean>-->
 
 </beans>

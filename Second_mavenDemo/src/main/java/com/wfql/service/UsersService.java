@@ -20,15 +20,19 @@ import java.util.logging.Logger;
 public class UsersService {
 
     private static final Logger logger = Logger.getLogger(UsersService.class.getName());
+//    @Autowired
+//    private UsersMapper usersMapperByFactory;
+
     @Autowired
-    private UsersMapper usersMapperByFactory;
+    private UsersMapper usersMapper;
 
 
-    public void getAllUsers() {
+    public List<Users> getAllUsers() {
         logger.log(Level.INFO, "展示用户信息列表");
-        List<Users> users = usersMapperByFactory.getAllUsers();
+        List<Users> users = usersMapper.getAllUsers();
         for (Users u : users) {
             logger.log(Level.INFO, "u = {0}", u);
         }
+        return users;
     }
 }

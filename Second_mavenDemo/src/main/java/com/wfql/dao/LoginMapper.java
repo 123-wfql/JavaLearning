@@ -13,8 +13,7 @@ import java.util.Map;
  * @apiNote 这个Mapper写了实现类，用注解省略了xml中的配置
  */
 
-@Repository
-@Mapper
+
 public interface LoginMapper {
 
     List<Login> getAllLogin();

@@ -1,5 +1,6 @@
 package com.wfql.factory;
 
+import com.wfql.dao.AdminMapper;
 import com.wfql.dao.LoginMapper;
 import com.wfql.dao.UsersMapper;
 import com.wfql.utils.MybatisUtil;
@@ -24,5 +25,10 @@ public class MapperFactory {
     public static LoginMapper createLoginMapper() {
         SqlSession sqlSession = MybatisUtil.getSqlSessionFromXml("mybatis_config.xml");
         return sqlSession.getMapper(LoginMapper.class);
+    }
+
+    public static AdminMapper createAdminMapper() {
+        SqlSession sqlSession = MybatisUtil.getSqlSessionFromXml("mybatis_config.xml");
+        return sqlSession.getMapper(AdminMapper.class);
     }
 }

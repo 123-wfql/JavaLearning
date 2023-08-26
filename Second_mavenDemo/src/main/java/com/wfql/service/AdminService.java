@@ -1,7 +1,7 @@
 package com.wfql.service;
 
-import com.wfql.dao.LoginMapper;
-import com.wfql.entity.Login;
+import com.wfql.dao.AdminMapper;
+import com.wfql.entity.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,15 +15,15 @@ import java.util.logging.Logger;
  * @apiNote
  */
 @Service
-public class LoginService {
-    private static final Logger logger = Logger.getLogger(LoginService.class.getName());
+public class AdminService {
+    private static final Logger logger = Logger.getLogger(AdminService.class.getName());
 //    @Autowired
 //    private LoginMapperImpl loginMapperImpl;
 
     @Autowired
-    private LoginMapper loginMapper;
+    private AdminMapper adminMapper;
 
-    public List<Login> getAllLogin() {
-        return loginMapper.getAllLogin();
+    public List<Admin> getAllAdmins() {
+        return adminMapper.getAllAdmin();
     }
 }
